@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./Database/config.js";
 import init from "./Database/init.js";
+import TodoRouter from "./Routes/TodoRoutes.js";
 
 const app=express();
 app.use(cors());
@@ -14,3 +15,5 @@ app.listen(5000, ()=>
 
 connectDB();
 init();
+
+app.use("/",TodoRouter);
